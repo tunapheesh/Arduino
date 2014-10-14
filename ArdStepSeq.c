@@ -6,6 +6,9 @@
 // Sequencer Hardware Tutorial: https://learn.sparkfun.com/tutorials/step-sequencing-with-auduino
 // 
 // Enjoy!
+//No changes made yet for my project -- I need to finish the drawing, and then match this to it
+//There will be changes, without a doubt.  
+
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
