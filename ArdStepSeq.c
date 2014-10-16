@@ -112,7 +112,7 @@ uint16_t mapPentatonic(uint16_t input) {
 
 
 void audioOn() {
-#if defined(__AVR_ATmega8__)
+#f defined(__AVR_ATmega8__)
   // ATmega8 has different registers
   TCCR2 = _BV(WGM20) | _BV(COM21) | _BV(CS20);
   TIMSK = _BV(TOIE2);
@@ -162,13 +162,13 @@ void setup() {
   pinMode(51, OUTPUT); digitalWrite(51, LOW);
   pinMode(53, OUTPUT); digitalWrite(53, LOW);
   
-  pinMode(24, INPUT); digitalWrite(24, HIGH);
-  pinMode(26, INPUT); digitalWrite(26, HIGH);
-  pinMode(28, INPUT); digitalWrite(28, HIGH);
-  pinMode(30, INPUT); digitalWrite(30, HIGH);
+  pinMode(31, INPUT); digitalWrite(31, HIGH);
   pinMode(32, INPUT); digitalWrite(32, HIGH);
+  pinMode(33, INPUT); digitalWrite(33, HIGH);
   pinMode(34, INPUT); digitalWrite(34, HIGH);
+  pinMode(35, INPUT); digitalWrite(35, HIGH);
   pinMode(36, INPUT); digitalWrite(36, HIGH);
+  pinMode(37, INPUT); digitalWrite(37, HIGH);
   pinMode(38, INPUT); digitalWrite(38, HIGH);
 
 }
@@ -213,35 +213,35 @@ parameter plus the associated "live" parameter. */
   switch(pattern){
     
     case 1:
-    syncPhaseInc = a1 + live_sync_phase; grainPhaseInc = a2 + live_grain_phase; grainDecay = a3 + live_grain_decay; grain2PhaseInc = a4 + live_grain2_phase; grain2Decay = a5 + live_grain2_decay; digitalWrite(53, HIGH); break;
+    syncPhaseInc = a1 + live_sync_phase; grainPhaseInc = a2 + live_grain_phase; grainDecay = a3 + live_grain_decay; grain2PhaseInc = a4 + live_grain2_phase; grain2Decay = a5 + live_grain2_decay; digitalWrite(39, HIGH); break;
     case 2:
-    syncPhaseInc = b1 + live_sync_phase; grainPhaseInc = b2 + live_grain_phase; grainDecay = b3 + live_grain_decay; grain2PhaseInc = b4 + live_grain2_phase; grain2Decay = b5 + live_grain2_decay; digitalWrite(51, HIGH); break;
+    syncPhaseInc = b1 + live_sync_phase; grainPhaseInc = b2 + live_grain_phase; grainDecay = b3 + live_grain_decay; grain2PhaseInc = b4 + live_grain2_phase; grain2Decay = b5 + live_grain2_decay; digitalWrite(41, HIGH); break;
     case 3:
-    syncPhaseInc = c1 + live_sync_phase; grainPhaseInc = c2 + live_grain_phase; grainDecay = c3 + live_grain_decay; grain2PhaseInc = c4 + live_grain2_phase; grain2Decay = c5 + live_grain2_decay; digitalWrite(49, HIGH); break;
+    syncPhaseInc = c1 + live_sync_phase; grainPhaseInc = c2 + live_grain_phase; grainDecay = c3 + live_grain_decay; grain2PhaseInc = c4 + live_grain2_phase; grain2Decay = c5 + live_grain2_decay; digitalWrite(43, HIGH); break;
     case 4:
-    syncPhaseInc = d1 + live_sync_phase; grainPhaseInc = d2 + live_grain_phase; grainDecay = d3 + live_grain_decay; grain2PhaseInc = d4 + live_grain2_phase; grain2Decay = d5 + live_grain2_decay; digitalWrite(47, HIGH); break;
+    syncPhaseInc = d1 + live_sync_phase; grainPhaseInc = d2 + live_grain_phase; grainDecay = d3 + live_grain_decay; grain2PhaseInc = d4 + live_grain2_phase; grain2Decay = d5 + live_grain2_decay; digitalWrite(45, HIGH); break;
     case 5:
-    syncPhaseInc = e1 + live_sync_phase; grainPhaseInc = e2 + live_grain_phase; grainDecay = e3 + live_grain_decay; grain2PhaseInc = e4 + live_grain2_phase; grain2Decay = e5 + live_grain2_decay; digitalWrite(45, HIGH); break;
+    syncPhaseInc = e1 + live_sync_phase; grainPhaseInc = e2 + live_grain_phase; grainDecay = e3 + live_grain_decay; grain2PhaseInc = e4 + live_grain2_phase; grain2Decay = e5 + live_grain2_decay; digitalWrite(47, HIGH); break;
     case 6:
-    syncPhaseInc = f1 + live_sync_phase; grainPhaseInc = f2 + live_grain_phase; grainDecay = f3 + live_grain_decay; grain2PhaseInc = f4 + live_grain2_phase; grain2Decay = f5 + live_grain2_decay; digitalWrite(43, HIGH); break;
+    syncPhaseInc = f1 + live_sync_phase; grainPhaseInc = f2 + live_grain_phase; grainDecay = f3 + live_grain_decay; grain2PhaseInc = f4 + live_grain2_phase; grain2Decay = f5 + live_grain2_decay; digitalWrite(49, HIGH); break;
     case 7:
-    syncPhaseInc = g1 + live_sync_phase; grainPhaseInc = g2 + live_grain_phase; grainDecay = g3 + live_grain_decay; grain2PhaseInc = g4 + live_grain2_phase; grain2Decay = g5 + live_grain2_decay; digitalWrite(41, HIGH); break; 
+    syncPhaseInc = g1 + live_sync_phase; grainPhaseInc = g2 + live_grain_phase; grainDecay = g3 + live_grain_decay; grain2PhaseInc = g4 + live_grain2_phase; grain2Decay = g5 + live_grain2_decay; digitalWrite(51, HIGH); break; 
     case 8:
-    syncPhaseInc = h1 + live_sync_phase; grainPhaseInc = h2 + live_grain_phase; grainDecay = h3 + live_grain_decay; grain2PhaseInc = h4 + live_grain2_phase; grain2Decay = h5 + live_grain2_decay; digitalWrite(39, HIGH); break;
+    syncPhaseInc = h1 + live_sync_phase; grainPhaseInc = h2 + live_grain_phase; grainDecay = h3 + live_grain_decay; grain2PhaseInc = h4 + live_grain2_phase; grain2Decay = h5 + live_grain2_decay; digitalWrite(53, HIGH); break;
   }
   
 //Check to see if the user is trying to change the step parameters.
 //This series of statements simply check for a button press from each of
 //the step buttons and call a function to change the indicated step.    
 
-    if(digitalRead(24)==LOW){changeStep(1);}
-    if(digitalRead(26)==LOW){changeStep(2);}
-    if(digitalRead(28)==LOW){changeStep(3);}
-    if(digitalRead(30)==LOW){changeStep(4);}
-    if(digitalRead(32)==LOW){changeStep(5);}
-    if(digitalRead(34)==LOW){changeStep(6);}
-    if(digitalRead(38)==LOW){changeStep(7);}
-    if(digitalRead(36)==LOW){changeStep(8);}
+    if(digitalRead(31)==LOW){changeStep(1);}
+    if(digitalRead(32)==LOW){changeStep(2);}
+    if(digitalRead(33)==LOW){changeStep(3);}
+    if(digitalRead(34)==LOW){changeStep(4);}
+    if(digitalRead(35)==LOW){changeStep(5);}
+    if(digitalRead(36)==LOW){changeStep(6);}
+    if(digitalRead(37)==LOW){changeStep(7);}
+    if(digitalRead(38)==LOW){changeStep(8);}
 }}
 
 void changeStep(int step_num){
@@ -295,21 +295,21 @@ while(1){
 
 //Here we read the button 1 input and commit the step changes to the appropriate parameters.
   
-  if(digitalRead(24)==LOW && step_num==1){
+  if(digitalRead(31)==LOW && step_num==1){
   a1 = syncPhaseInc; a2 = grainPhaseInc; a3 = grainDecay; a4 = grain2PhaseInc; a5 = grain2Decay; return;}
-  else if(digitalRead(24)==LOW && step_num==2){
+  else if(digitalRead(31)==LOW && step_num==2){
   b1 = syncPhaseInc; b2 = grainPhaseInc; b3 = grainDecay; b4 = grain2PhaseInc; b5 = grain2Decay; return;}
-  else if(digitalRead(24)==LOW && step_num==3){
+  else if(digitalRead(31)==LOW && step_num==3){
   c1 = syncPhaseInc; c2 = grainPhaseInc; c3 = grainDecay; c4 = grain2PhaseInc; c5 = grain2Decay; return;}
-  else if(digitalRead(24)==LOW && step_num==4){
+  else if(digitalRead(31)==LOW && step_num==4){
   d1 = syncPhaseInc; d2 = grainPhaseInc; d3 = grainDecay; d4 = grain2PhaseInc; d5 = grain2Decay; return;}
-  else if(digitalRead(24)==LOW && step_num==5){
+  else if(digitalRead(31)==LOW && step_num==5){
   e1 = syncPhaseInc; e2 = grainPhaseInc; e3 = grainDecay; e4 = grain2PhaseInc; e5 = grain2Decay; return;}
-  else if(digitalRead(24)==LOW && step_num==6){
+  else if(digitalRead(31)==LOW && step_num==6){
   f1 = syncPhaseInc; f2 = grainPhaseInc; f3 = grainDecay; f4 = grain2PhaseInc; f5 = grain2Decay; return;}
-  else if(digitalRead(24)==LOW && step_num==7){
+  else if(digitalRead(31)==LOW && step_num==7){
   g1 = syncPhaseInc; g2 = grainPhaseInc; g3 = grainDecay; g4 = grain2PhaseInc; g5 = grain2Decay; return;}
-  else if(digitalRead(24)==LOW && step_num==8){
+  else if(digitalRead(31)==LOW && step_num==8){
   h1 = syncPhaseInc; h2 = grainPhaseInc; h3 = grainDecay; h4 = grain2PhaseInc; h5 = grain2Decay; return;}
 
 }}}
