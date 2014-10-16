@@ -26,10 +26,10 @@ uint8_t grain2Decay;
 
 // Map Analogue channels
 #define SYNC_CONTROL         (4)
-#define GRAIN_FREQ_CONTROL   (0)
-#define GRAIN_DECAY_CONTROL  (2)
-#define GRAIN2_FREQ_CONTROL  (3)
-#define GRAIN2_DECAY_CONTROL (1)
+#define GRAIN_FREQ_CONTROL   (5)
+#define GRAIN_DECAY_CONTROL  (6)
+#define GRAIN2_FREQ_CONTROL  (7)
+#define GRAIN2_DECAY_CONTROL (8)
 
 
 // Changing these will also requires rewriting audioOn()
@@ -193,15 +193,15 @@ jump to the next step. */
   digitalWrite(47, LOW);digitalWrite(49, LOW);digitalWrite(51, LOW);digitalWrite(53, LOW);
  
 //Live Tweaks: Read the analog inputs associated with each "live" parameter.
-  live_sync_phase = map(analogRead(14),0,1023,-500,500);
+  live_sync_phase = map(analogRead(9),0,1023,-500,500);
   live_grain_phase = map(analogRead(10),0,1023,-200,200);
-  live_grain_decay = map(analogRead(9),0,1023,-20,20);
-  live_grain2_phase = map(analogRead(8),0,1023,-200,200);
-  live_grain2_decay = map(analogRead(11),0,1023,-50,50);
+  live_grain_decay = map(analogRead(11),0,1023,-20,20);
+  live_grain2_phase = map(analogRead(12),0,1023,-200,200);
+  live_grain2_decay = map(analogRead(13),0,1023,-50,50);
   
   
 //Tempo Control: Read the analog inputs associated with the "tempo" parameter.
-tempo = map(analogRead(15),0,1023,1000,32000);
+tempo = map(analogRead(14),0,1023,1000,32000);
   
 //Grab the parameters for the step that we're now in. We'll use a series of case
 //statements switched on the "pattern" variable that we incremented earlier.
