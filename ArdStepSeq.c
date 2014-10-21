@@ -12,6 +12,8 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <RGBmatrixPanel.h>
+#include <Adafruit_GFX.h>
 
 uint16_t syncPhaseAcc;
 uint16_t syncPhaseInc;
@@ -112,7 +114,7 @@ uint16_t mapPentatonic(uint16_t input) {
 
 
 void audioOn() {
-#f defined(__AVR_ATmega8__)
+#if defined(__AVR_ATmega8__)
   // ATmega8 has different registers
   TCCR2 = _BV(WGM20) | _BV(COM21) | _BV(CS20);
   TIMSK = _BV(TOIE2);
